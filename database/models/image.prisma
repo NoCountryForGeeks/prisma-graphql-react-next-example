@@ -1,0 +1,5 @@
+type Image @embedded {
+  url: String!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}

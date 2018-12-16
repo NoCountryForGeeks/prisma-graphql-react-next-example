@@ -1,0 +1,6 @@
+type Like @db(name: "likes") {
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  user: User!
+  item: Item!
+}

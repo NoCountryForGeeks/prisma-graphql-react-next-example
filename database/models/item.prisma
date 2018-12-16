@@ -1,0 +1,13 @@
+type Item @db(name: "items") {
+    id: ID! @id
+    name: String! @unique
+    description: String!
+    totalVisited: Int
+    lastVisit: DateTime!
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
+    mainImage: Image! @relation(name: "MainImage" link: INLINE)
+    images: [Image!]! @relation(name: "ItemImages" link: INLINE)
+    likes: [Like] @relation(link: INLINE)
+    categories: [Category!]!
+}

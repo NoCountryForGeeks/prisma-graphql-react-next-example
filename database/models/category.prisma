@@ -1,0 +1,8 @@
+type Category @db(name: "categories") {
+    id: ID! @id
+    name: String! @unique
+    description: String!
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
+    items: [Item] @relation(link: INLINE)
+}

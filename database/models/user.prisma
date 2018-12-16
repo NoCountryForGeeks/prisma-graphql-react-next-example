@@ -1,0 +1,11 @@
+type User @db(name: "users") {
+    id: ID! @id
+    firstName: String!
+    lastName: String!
+    email: String! @unique
+    password: String!
+    newsLetterSuscription: Boolean
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime! @updatedAt
+    likes: [Like] @relation(link: INLINE)
+}

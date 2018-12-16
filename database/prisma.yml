@@ -1,0 +1,16 @@
+endpoint: http://localhost:4466
+datamodel: 
+  - ./models/category.prisma
+  - ./models/image.prisma
+  - ./models/item.prisma
+  - ./models/like.prisma
+  - ./models/user.prisma
+databaseType: document
+
+generate:
+  - generator: javascript-client
+    output: ./generated/prisma-client/
+
+hooks:
+  post-deploy:
+    - graphql get-schema --project database

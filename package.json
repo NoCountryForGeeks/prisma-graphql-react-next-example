@@ -1,0 +1,22 @@
+{
+  "name": "intento3",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "dotenv -- nodemon ./src/index.js --inspect --exec babel-node -e js",
+    "seed": "babel-node ./domain/seed/seed.js"
+  },
+  "dependencies": {
+    "graphql-yoga": "^1.16.7",
+    "prisma-binding": "^2.2.8"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.0",
+    "@babel/node": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
+    "dotenv": "^6.1.0",
+    "dotenv-cli": "^1.4.0",
+    "nodemon": "^1.18.7"
+  }
+}
