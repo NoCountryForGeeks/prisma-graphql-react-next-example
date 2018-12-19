@@ -1,4 +1,4 @@
-endpoint: http://localhost:4466
+endpoint: ${env:PRISMA_SERVER_DOMAIN}${env:PRISMA_SERVER_PORT}
 datamodel: 
   - ./models/category.prisma
   - ./models/image.prisma
@@ -6,6 +6,10 @@ datamodel:
   - ./models/like.prisma
   - ./models/user.prisma
 databaseType: document
+secret: ${env:PRISMA_SECRET}
+
+seed:
+  import: ./seed/seed.graphql
 
 generate:
   - generator: javascript-client

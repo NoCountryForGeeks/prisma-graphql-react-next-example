@@ -31,7 +31,26 @@ We want to build **social media shop** using Prisma, GraphQL, MongoDB, Passport,
 
 **Note: Docker is required to execute the project**
 
-1. `yarn global add prisma@1.22.0-beta.8` or higher
-2. `docker-compose up -d`
-3. `prisma deploy`
-4. `yarn start`
+1. ```yarn start:prisma```
+2. ```yarn prisma:deploy```
+3. ```yarn start```
+
+## Launch Prisma Playground
+
+**Note: The prisma endpoint is secured with secret key to only allow authorized request**
+
+1. ```yarn prisma:token```
+3. Go to browser and open ```http://localhost:4466```
+2. Copy the generated token and add to playground headers
+```javascript
+{
+  "Ahutorized": "Bearer  _YOUR_GENERATED_TOKEN_"
+}
+```
+
+## Launch Server Playground
+
+1. ```yarn start```
+3. Go to browser and open ```http://localhost:4000```
+
+**Note: If the PRISMA_SECRET is not set in .env file, the prisma endpoint is not authenticated and the deploy command will throw a warning (recomended in development)**
