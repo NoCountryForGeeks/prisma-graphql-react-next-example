@@ -3,13 +3,17 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "engines": {
+    "node": ">=8.0.0"
+  },
   "scripts": {
     "start:prisma": "docker-compose up -d",
     "prisma:deploy": "prisma deploy",
     "prisma:token": "prisma token",
-    "start": "dotenv -- nodemon ./src/index.js --inspect --exec babel-node -e js",
+    "start": "dotenv -- nodemon ./src/index.js --inspect --exec \"yarn lint && babel-node\" -e js",
     "build": "dotenv -- babel-node ./src/index.js",
-    "download:schema": "graphql get-schema"
+    "download:schema": "graphql get-schema",
+    "lint": "eslint ./src --ext .js --ext .jsx --cache"
   },
   "dependencies": {
     "graphql-yoga": "^1.16.7",
@@ -19,9 +23,13 @@
     "@babel/core": "^7.2.0",
     "@babel/node": "^7.2.0",
     "@babel/preset-env": "^7.2.0",
+    "babel-eslint": "^10.0.1",
     "dotenv": "^6.1.0",
     "dotenv-cli": "^1.4.0",
+    "eslint": "^5.11.0",
+    "eslint-plugin-node": "^8.0.0",
     "nodemon": "^1.18.7",
+    "prettier": "^1.15.3",
     "prisma": "^1.22.0-beta.8"
   }
 }
