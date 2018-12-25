@@ -4,8 +4,12 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "start:prisma": "docker-compose up -d",
+    "prisma:deploy": "prisma deploy",
+    "prisma:token": "prisma token",
     "start": "dotenv -- nodemon ./src/index.js --inspect --exec babel-node -e js",
-    "seed": "babel-node ./domain/seed/seed.js"
+    "build": "dotenv -- babel-node ./src/index.js",
+    "download:schema": "graphql get-schema"
   },
   "dependencies": {
     "graphql-yoga": "^1.16.7",
@@ -17,6 +21,7 @@
     "@babel/preset-env": "^7.2.0",
     "dotenv": "^6.1.0",
     "dotenv-cli": "^1.4.0",
-    "nodemon": "^1.18.7"
+    "nodemon": "^1.18.7",
+    "prisma": "^1.22.0-beta.8"
   }
 }

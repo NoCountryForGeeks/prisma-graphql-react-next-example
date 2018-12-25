@@ -1,6 +1,13 @@
 import { GraphQLServer } from 'graphql-yoga';
 import { Prisma } from 'prisma-binding';
 import { resolvers } from './resolvers';
+import { 
+  PRISMA_SERVER_DOMAIN, 
+  PRISMA_SERVER_PORT, 
+  DEBUG, 
+  SERVER_PORT, 
+  PRISMA_SECRET 
+} from './configuration/enviromentVariables';
 
 const server = new GraphQLServer({
   typeDefs: './src/schema.graphql',
@@ -9,15 +16,15 @@ const server = new GraphQLServer({
     ...req,
     db: new Prisma({
       typeDefs: 'src/generated/prisma.graphql',
-      endpoint: 'http://localhost:4466',
-      secret: 'mysecret123',
-      debug: true,
+      endpoint: `${PRISMA_SERVER_DOMAIN}${PRISMA_SERVER_PORT}`,
+      secret: PRISMA_SECRET,
+      debug: DEBUG,
     }),
   }),
 });
 
 const options = {
-    port: 4000,
+    port: SERVER_PORT,
     cors: {
       origin: '*'
     }

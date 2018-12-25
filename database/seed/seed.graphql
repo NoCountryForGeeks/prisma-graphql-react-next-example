@@ -1,0 +1,8 @@
+mutation {
+  createCategory(data: {
+    name: "Category 1"
+    description: "Description category 1"
+  }) {
+    id
+  }
+}
